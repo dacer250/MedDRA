@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.SocHlgtCompMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.SocHlgtComp" >
+    <result column="soc_code" property="socCode" jdbcType="BIGINT" />
+    <result column="hlgt_code" property="hlgtCode" jdbcType="BIGINT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.SocHlgtComp" >
+    insert into soc_hlgt_comp (soc_code, hlgt_code)
+    values (#{socCode,jdbcType=BIGINT}, #{hlgtCode,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.SocHlgtComp" >
+    insert into soc_hlgt_comp
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="socCode != null" >
+        soc_code,
+      </if>
+      <if test="hlgtCode != null" >
+        hlgt_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="socCode != null" >
+        #{socCode,jdbcType=BIGINT},
+      </if>
+      <if test="hlgtCode != null" >
+        #{hlgtCode,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.HlgtHltSeqMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.HlgtHltSeq" >
+    <result column="h_h_version_date" property="hHVersionDate" jdbcType="VARCHAR" />
+    <result column="h_h_action_code" property="hHActionCode" jdbcType="VARCHAR" />
+    <result column="h_h_mod_fld_num" property="hHModFldNum" jdbcType="VARCHAR" />
+    <result column="Hlgt_code" property="hlgtCode" jdbcType="BIGINT" />
+    <result column="hlt_code" property="hltCode" jdbcType="BIGINT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.HlgtHltSeq" >
+    insert into hlgt_hlt_seq (h_h_version_date, h_h_action_code, h_h_mod_fld_num, 
+      Hlgt_code, hlt_code)
+    values (#{hHVersionDate,jdbcType=VARCHAR}, #{hHActionCode,jdbcType=VARCHAR}, #{hHModFldNum,jdbcType=VARCHAR}, 
+      #{hlgtCode,jdbcType=BIGINT}, #{hltCode,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.HlgtHltSeq" >
+    insert into hlgt_hlt_seq
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hHVersionDate != null" >
+        h_h_version_date,
+      </if>
+      <if test="hHActionCode != null" >
+        h_h_action_code,
+      </if>
+      <if test="hHModFldNum != null" >
+        h_h_mod_fld_num,
+      </if>
+      <if test="hlgtCode != null" >
+        Hlgt_code,
+      </if>
+      <if test="hltCode != null" >
+        hlt_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hHVersionDate != null" >
+        #{hHVersionDate,jdbcType=VARCHAR},
+      </if>
+      <if test="hHActionCode != null" >
+        #{hHActionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hHModFldNum != null" >
+        #{hHModFldNum,jdbcType=VARCHAR},
+      </if>
+      <if test="hlgtCode != null" >
+        #{hlgtCode,jdbcType=BIGINT},
+      </if>
+      <if test="hltCode != null" >
+        #{hltCode,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

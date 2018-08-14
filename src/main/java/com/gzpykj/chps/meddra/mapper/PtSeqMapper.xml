@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.PtSeqMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.PtSeq" >
+    <result column="pt_version_date" property="ptVersionDate" jdbcType="VARCHAR" />
+    <result column="pt_action_code" property="ptActionCode" jdbcType="VARCHAR" />
+    <result column="pt_mod_fld_num" property="ptModFldNum" jdbcType="VARCHAR" />
+    <result column="pt_code" property="ptCode" jdbcType="BIGINT" />
+    <result column="pt_name" property="ptName" jdbcType="VARCHAR" />
+    <result column="null_field" property="nullField" jdbcType="VARCHAR" />
+    <result column="pt_soc_code" property="ptSocCode" jdbcType="BIGINT" />
+    <result column="pt_whoart_code" property="ptWhoartCode" jdbcType="VARCHAR" />
+    <result column="pt_harts_code" property="ptHartsCode" jdbcType="BIGINT" />
+    <result column="pt_costart_sym" property="ptCostartSym" jdbcType="VARCHAR" />
+    <result column="pt_icd9_code" property="ptIcd9Code" jdbcType="VARCHAR" />
+    <result column="pt_icd9cm_code" property="ptIcd9cmCode" jdbcType="VARCHAR" />
+    <result column="pt_icd10_code" property="ptIcd10Code" jdbcType="VARCHAR" />
+    <result column="pt_jart_code" property="ptJartCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.PtSeq" >
+    insert into pt_seq (pt_version_date, pt_action_code, pt_mod_fld_num, 
+      pt_code, pt_name, null_field, 
+      pt_soc_code, pt_whoart_code, pt_harts_code, 
+      pt_costart_sym, pt_icd9_code, pt_icd9cm_code, 
+      pt_icd10_code, pt_jart_code)
+    values (#{ptVersionDate,jdbcType=VARCHAR}, #{ptActionCode,jdbcType=VARCHAR}, #{ptModFldNum,jdbcType=VARCHAR}, 
+      #{ptCode,jdbcType=BIGINT}, #{ptName,jdbcType=VARCHAR}, #{nullField,jdbcType=VARCHAR}, 
+      #{ptSocCode,jdbcType=BIGINT}, #{ptWhoartCode,jdbcType=VARCHAR}, #{ptHartsCode,jdbcType=BIGINT}, 
+      #{ptCostartSym,jdbcType=VARCHAR}, #{ptIcd9Code,jdbcType=VARCHAR}, #{ptIcd9cmCode,jdbcType=VARCHAR}, 
+      #{ptIcd10Code,jdbcType=VARCHAR}, #{ptJartCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.PtSeq" >
+    insert into pt_seq
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ptVersionDate != null" >
+        pt_version_date,
+      </if>
+      <if test="ptActionCode != null" >
+        pt_action_code,
+      </if>
+      <if test="ptModFldNum != null" >
+        pt_mod_fld_num,
+      </if>
+      <if test="ptCode != null" >
+        pt_code,
+      </if>
+      <if test="ptName != null" >
+        pt_name,
+      </if>
+      <if test="nullField != null" >
+        null_field,
+      </if>
+      <if test="ptSocCode != null" >
+        pt_soc_code,
+      </if>
+      <if test="ptWhoartCode != null" >
+        pt_whoart_code,
+      </if>
+      <if test="ptHartsCode != null" >
+        pt_harts_code,
+      </if>
+      <if test="ptCostartSym != null" >
+        pt_costart_sym,
+      </if>
+      <if test="ptIcd9Code != null" >
+        pt_icd9_code,
+      </if>
+      <if test="ptIcd9cmCode != null" >
+        pt_icd9cm_code,
+      </if>
+      <if test="ptIcd10Code != null" >
+        pt_icd10_code,
+      </if>
+      <if test="ptJartCode != null" >
+        pt_jart_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ptVersionDate != null" >
+        #{ptVersionDate,jdbcType=VARCHAR},
+      </if>
+      <if test="ptActionCode != null" >
+        #{ptActionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ptModFldNum != null" >
+        #{ptModFldNum,jdbcType=VARCHAR},
+      </if>
+      <if test="ptCode != null" >
+        #{ptCode,jdbcType=BIGINT},
+      </if>
+      <if test="ptName != null" >
+        #{ptName,jdbcType=VARCHAR},
+      </if>
+      <if test="nullField != null" >
+        #{nullField,jdbcType=VARCHAR},
+      </if>
+      <if test="ptSocCode != null" >
+        #{ptSocCode,jdbcType=BIGINT},
+      </if>
+      <if test="ptWhoartCode != null" >
+        #{ptWhoartCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ptHartsCode != null" >
+        #{ptHartsCode,jdbcType=BIGINT},
+      </if>
+      <if test="ptCostartSym != null" >
+        #{ptCostartSym,jdbcType=VARCHAR},
+      </if>
+      <if test="ptIcd9Code != null" >
+        #{ptIcd9Code,jdbcType=VARCHAR},
+      </if>
+      <if test="ptIcd9cmCode != null" >
+        #{ptIcd9cmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ptIcd10Code != null" >
+        #{ptIcd10Code,jdbcType=VARCHAR},
+      </if>
+      <if test="ptJartCode != null" >
+        #{ptJartCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

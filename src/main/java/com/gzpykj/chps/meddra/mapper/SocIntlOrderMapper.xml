@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.SocIntlOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.SocIntlOrder" >
+    <id column="intl_ord_code" property="intlOrdCode" jdbcType="BIGINT" />
+    <result column="soc_code" property="socCode" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    intl_ord_code, soc_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from soc_intl_order
+    where intl_ord_code = #{intlOrdCode,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from soc_intl_order
+    where intl_ord_code = #{intlOrdCode,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.SocIntlOrder" >
+    insert into soc_intl_order (intl_ord_code, soc_code)
+    values (#{intlOrdCode,jdbcType=BIGINT}, #{socCode,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.SocIntlOrder" >
+    insert into soc_intl_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="intlOrdCode != null" >
+        intl_ord_code,
+      </if>
+      <if test="socCode != null" >
+        soc_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="intlOrdCode != null" >
+        #{intlOrdCode,jdbcType=BIGINT},
+      </if>
+      <if test="socCode != null" >
+        #{socCode,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gzpykj.chps.meddra.entity.SocIntlOrder" >
+    update soc_intl_order
+    <set >
+      <if test="socCode != null" >
+        soc_code = #{socCode,jdbcType=BIGINT},
+      </if>
+    </set>
+    where intl_ord_code = #{intlOrdCode,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gzpykj.chps.meddra.entity.SocIntlOrder" >
+    update soc_intl_order
+    set soc_code = #{socCode,jdbcType=BIGINT}
+    where intl_ord_code = #{intlOrdCode,jdbcType=BIGINT}
+  </update>
+</mapper>

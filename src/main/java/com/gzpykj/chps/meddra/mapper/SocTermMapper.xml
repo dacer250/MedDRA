@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.SocTermMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.SocTerm" >
+    <id column="soc_code" property="socCode" jdbcType="BIGINT" />
+    <result column="soc_name" property="socName" jdbcType="VARCHAR" />
+    <result column="soc_abbrev" property="socAbbrev" jdbcType="VARCHAR" />
+    <result column="soc_whoart_code" property="socWhoartCode" jdbcType="VARCHAR" />
+    <result column="soc_harts_code" property="socHartsCode" jdbcType="BIGINT" />
+    <result column="soc_costart_sym" property="socCostartSym" jdbcType="VARCHAR" />
+    <result column="soc_icd9_code" property="socIcd9Code" jdbcType="VARCHAR" />
+    <result column="soc_icd9cm_code" property="socIcd9cmCode" jdbcType="VARCHAR" />
+    <result column="soc_icd10_code" property="socIcd10Code" jdbcType="VARCHAR" />
+    <result column="soc_jart_code" property="socJartCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    soc_code, soc_name, soc_abbrev, soc_whoart_code, soc_harts_code, soc_costart_sym, 
+    soc_icd9_code, soc_icd9cm_code, soc_icd10_code, soc_jart_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from soc_term
+    where soc_code = #{socCode,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from soc_term
+    where soc_code = #{socCode,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.SocTerm" >
+    insert into soc_term (soc_code, soc_name, soc_abbrev, 
+      soc_whoart_code, soc_harts_code, soc_costart_sym, 
+      soc_icd9_code, soc_icd9cm_code, soc_icd10_code, 
+      soc_jart_code)
+    values (#{socCode,jdbcType=BIGINT}, #{socName,jdbcType=VARCHAR}, #{socAbbrev,jdbcType=VARCHAR}, 
+      #{socWhoartCode,jdbcType=VARCHAR}, #{socHartsCode,jdbcType=BIGINT}, #{socCostartSym,jdbcType=VARCHAR}, 
+      #{socIcd9Code,jdbcType=VARCHAR}, #{socIcd9cmCode,jdbcType=VARCHAR}, #{socIcd10Code,jdbcType=VARCHAR}, 
+      #{socJartCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.SocTerm" >
+    insert into soc_term
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="socCode != null" >
+        soc_code,
+      </if>
+      <if test="socName != null" >
+        soc_name,
+      </if>
+      <if test="socAbbrev != null" >
+        soc_abbrev,
+      </if>
+      <if test="socWhoartCode != null" >
+        soc_whoart_code,
+      </if>
+      <if test="socHartsCode != null" >
+        soc_harts_code,
+      </if>
+      <if test="socCostartSym != null" >
+        soc_costart_sym,
+      </if>
+      <if test="socIcd9Code != null" >
+        soc_icd9_code,
+      </if>
+      <if test="socIcd9cmCode != null" >
+        soc_icd9cm_code,
+      </if>
+      <if test="socIcd10Code != null" >
+        soc_icd10_code,
+      </if>
+      <if test="socJartCode != null" >
+        soc_jart_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="socCode != null" >
+        #{socCode,jdbcType=BIGINT},
+      </if>
+      <if test="socName != null" >
+        #{socName,jdbcType=VARCHAR},
+      </if>
+      <if test="socAbbrev != null" >
+        #{socAbbrev,jdbcType=VARCHAR},
+      </if>
+      <if test="socWhoartCode != null" >
+        #{socWhoartCode,jdbcType=VARCHAR},
+      </if>
+      <if test="socHartsCode != null" >
+        #{socHartsCode,jdbcType=BIGINT},
+      </if>
+      <if test="socCostartSym != null" >
+        #{socCostartSym,jdbcType=VARCHAR},
+      </if>
+      <if test="socIcd9Code != null" >
+        #{socIcd9Code,jdbcType=VARCHAR},
+      </if>
+      <if test="socIcd9cmCode != null" >
+        #{socIcd9cmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="socIcd10Code != null" >
+        #{socIcd10Code,jdbcType=VARCHAR},
+      </if>
+      <if test="socJartCode != null" >
+        #{socJartCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gzpykj.chps.meddra.entity.SocTerm" >
+    update soc_term
+    <set >
+      <if test="socName != null" >
+        soc_name = #{socName,jdbcType=VARCHAR},
+      </if>
+      <if test="socAbbrev != null" >
+        soc_abbrev = #{socAbbrev,jdbcType=VARCHAR},
+      </if>
+      <if test="socWhoartCode != null" >
+        soc_whoart_code = #{socWhoartCode,jdbcType=VARCHAR},
+      </if>
+      <if test="socHartsCode != null" >
+        soc_harts_code = #{socHartsCode,jdbcType=BIGINT},
+      </if>
+      <if test="socCostartSym != null" >
+        soc_costart_sym = #{socCostartSym,jdbcType=VARCHAR},
+      </if>
+      <if test="socIcd9Code != null" >
+        soc_icd9_code = #{socIcd9Code,jdbcType=VARCHAR},
+      </if>
+      <if test="socIcd9cmCode != null" >
+        soc_icd9cm_code = #{socIcd9cmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="socIcd10Code != null" >
+        soc_icd10_code = #{socIcd10Code,jdbcType=VARCHAR},
+      </if>
+      <if test="socJartCode != null" >
+        soc_jart_code = #{socJartCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where soc_code = #{socCode,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gzpykj.chps.meddra.entity.SocTerm" >
+    update soc_term
+    set soc_name = #{socName,jdbcType=VARCHAR},
+      soc_abbrev = #{socAbbrev,jdbcType=VARCHAR},
+      soc_whoart_code = #{socWhoartCode,jdbcType=VARCHAR},
+      soc_harts_code = #{socHartsCode,jdbcType=BIGINT},
+      soc_costart_sym = #{socCostartSym,jdbcType=VARCHAR},
+      soc_icd9_code = #{socIcd9Code,jdbcType=VARCHAR},
+      soc_icd9cm_code = #{socIcd9cmCode,jdbcType=VARCHAR},
+      soc_icd10_code = #{socIcd10Code,jdbcType=VARCHAR},
+      soc_jart_code = #{socJartCode,jdbcType=VARCHAR}
+    where soc_code = #{socCode,jdbcType=BIGINT}
+  </update>
+</mapper>

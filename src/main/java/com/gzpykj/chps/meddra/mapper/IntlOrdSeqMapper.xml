@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.IntlOrdSeqMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.IntlOrdSeq" >
+    <result column="Intl_ord_version_date" property="intlOrdVersionDate" jdbcType="VARCHAR" />
+    <result column="Intl_ord_action_code" property="intlOrdActionCode" jdbcType="VARCHAR" />
+    <result column="Intl_ord_mod_fld_num" property="intlOrdModFldNum" jdbcType="VARCHAR" />
+    <result column="Intl_ord_code" property="intlOrdCode" jdbcType="BIGINT" />
+    <result column="soc_code" property="socCode" jdbcType="BIGINT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.IntlOrdSeq" >
+    insert into intl_ord_seq (Intl_ord_version_date, Intl_ord_action_code, 
+      Intl_ord_mod_fld_num, Intl_ord_code, soc_code
+      )
+    values (#{intlOrdVersionDate,jdbcType=VARCHAR}, #{intlOrdActionCode,jdbcType=VARCHAR}, 
+      #{intlOrdModFldNum,jdbcType=VARCHAR}, #{intlOrdCode,jdbcType=BIGINT}, #{socCode,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.IntlOrdSeq" >
+    insert into intl_ord_seq
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="intlOrdVersionDate != null" >
+        Intl_ord_version_date,
+      </if>
+      <if test="intlOrdActionCode != null" >
+        Intl_ord_action_code,
+      </if>
+      <if test="intlOrdModFldNum != null" >
+        Intl_ord_mod_fld_num,
+      </if>
+      <if test="intlOrdCode != null" >
+        Intl_ord_code,
+      </if>
+      <if test="socCode != null" >
+        soc_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="intlOrdVersionDate != null" >
+        #{intlOrdVersionDate,jdbcType=VARCHAR},
+      </if>
+      <if test="intlOrdActionCode != null" >
+        #{intlOrdActionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intlOrdModFldNum != null" >
+        #{intlOrdModFldNum,jdbcType=VARCHAR},
+      </if>
+      <if test="intlOrdCode != null" >
+        #{intlOrdCode,jdbcType=BIGINT},
+      </if>
+      <if test="socCode != null" >
+        #{socCode,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

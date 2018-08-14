@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.SmqContentMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.SmqContent" >
+    <result column="smq_code" property="smqCode" jdbcType="BIGINT" />
+    <result column="term_code" property="termCode" jdbcType="BIGINT" />
+    <result column="term_level" property="termLevel" jdbcType="INTEGER" />
+    <result column="term_scope" property="termScope" jdbcType="INTEGER" />
+    <result column="term_category" property="termCategory" jdbcType="VARCHAR" />
+    <result column="term_weight" property="termWeight" jdbcType="INTEGER" />
+    <result column="term_status" property="termStatus" jdbcType="VARCHAR" />
+    <result column="term_addition_version" property="termAdditionVersion" jdbcType="VARCHAR" />
+    <result column="term_last_ modified_version" property="termLastModifiedVersion" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.SmqContent" >
+    insert into smq_content (smq_code, term_code, term_level, 
+      term_scope, term_category, term_weight, 
+      term_status, term_addition_version, "term_last_ modified_version"
+      )
+    values (#{smqCode,jdbcType=BIGINT}, #{termCode,jdbcType=BIGINT}, #{termLevel,jdbcType=INTEGER}, 
+      #{termScope,jdbcType=INTEGER}, #{termCategory,jdbcType=VARCHAR}, #{termWeight,jdbcType=INTEGER}, 
+      #{termStatus,jdbcType=VARCHAR}, #{termAdditionVersion,jdbcType=VARCHAR}, #{termLastModifiedVersion,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.SmqContent" >
+    insert into smq_content
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="smqCode != null" >
+        smq_code,
+      </if>
+      <if test="termCode != null" >
+        term_code,
+      </if>
+      <if test="termLevel != null" >
+        term_level,
+      </if>
+      <if test="termScope != null" >
+        term_scope,
+      </if>
+      <if test="termCategory != null" >
+        term_category,
+      </if>
+      <if test="termWeight != null" >
+        term_weight,
+      </if>
+      <if test="termStatus != null" >
+        term_status,
+      </if>
+      <if test="termAdditionVersion != null" >
+        term_addition_version,
+      </if>
+      <if test="termLastModifiedVersion != null" >
+        "term_last_ modified_version",
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="smqCode != null" >
+        #{smqCode,jdbcType=BIGINT},
+      </if>
+      <if test="termCode != null" >
+        #{termCode,jdbcType=BIGINT},
+      </if>
+      <if test="termLevel != null" >
+        #{termLevel,jdbcType=INTEGER},
+      </if>
+      <if test="termScope != null" >
+        #{termScope,jdbcType=INTEGER},
+      </if>
+      <if test="termCategory != null" >
+        #{termCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="termWeight != null" >
+        #{termWeight,jdbcType=INTEGER},
+      </if>
+      <if test="termStatus != null" >
+        #{termStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="termAdditionVersion != null" >
+        #{termAdditionVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="termLastModifiedVersion != null" >
+        #{termLastModifiedVersion,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

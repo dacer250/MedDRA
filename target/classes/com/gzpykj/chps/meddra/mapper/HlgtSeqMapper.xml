@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.HlgtSeqMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.HlgtSeq" >
+    <result column="hlgt_version_date" property="hlgtVersionDate" jdbcType="VARCHAR" />
+    <result column="hlgt_action_code" property="hlgtActionCode" jdbcType="VARCHAR" />
+    <result column="hlgt_mod_fld_num" property="hlgtModFldNum" jdbcType="VARCHAR" />
+    <result column="hlgt_code" property="hlgtCode" jdbcType="BIGINT" />
+    <result column="hlgt_name" property="hlgtName" jdbcType="VARCHAR" />
+    <result column="hlgt_whoart_code" property="hlgtWhoartCode" jdbcType="VARCHAR" />
+    <result column="hlgt_harts_code" property="hlgtHartsCode" jdbcType="BIGINT" />
+    <result column="hlgt_costart_sym" property="hlgtCostartSym" jdbcType="VARCHAR" />
+    <result column="hlgt_icd9_code" property="hlgtIcd9Code" jdbcType="VARCHAR" />
+    <result column="hlgt_icd9cm_code" property="hlgtIcd9cmCode" jdbcType="VARCHAR" />
+    <result column="hlgt_icd10_code" property="hlgtIcd10Code" jdbcType="VARCHAR" />
+    <result column="hlgt_jart_code" property="hlgtJartCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.HlgtSeq" >
+    insert into hlgt_seq (hlgt_version_date, hlgt_action_code, 
+      hlgt_mod_fld_num, hlgt_code, hlgt_name, 
+      hlgt_whoart_code, hlgt_harts_code, hlgt_costart_sym, 
+      hlgt_icd9_code, hlgt_icd9cm_code, hlgt_icd10_code, 
+      hlgt_jart_code)
+    values (#{hlgtVersionDate,jdbcType=VARCHAR}, #{hlgtActionCode,jdbcType=VARCHAR}, 
+      #{hlgtModFldNum,jdbcType=VARCHAR}, #{hlgtCode,jdbcType=BIGINT}, #{hlgtName,jdbcType=VARCHAR}, 
+      #{hlgtWhoartCode,jdbcType=VARCHAR}, #{hlgtHartsCode,jdbcType=BIGINT}, #{hlgtCostartSym,jdbcType=VARCHAR}, 
+      #{hlgtIcd9Code,jdbcType=VARCHAR}, #{hlgtIcd9cmCode,jdbcType=VARCHAR}, #{hlgtIcd10Code,jdbcType=VARCHAR}, 
+      #{hlgtJartCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.HlgtSeq" >
+    insert into hlgt_seq
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hlgtVersionDate != null" >
+        hlgt_version_date,
+      </if>
+      <if test="hlgtActionCode != null" >
+        hlgt_action_code,
+      </if>
+      <if test="hlgtModFldNum != null" >
+        hlgt_mod_fld_num,
+      </if>
+      <if test="hlgtCode != null" >
+        hlgt_code,
+      </if>
+      <if test="hlgtName != null" >
+        hlgt_name,
+      </if>
+      <if test="hlgtWhoartCode != null" >
+        hlgt_whoart_code,
+      </if>
+      <if test="hlgtHartsCode != null" >
+        hlgt_harts_code,
+      </if>
+      <if test="hlgtCostartSym != null" >
+        hlgt_costart_sym,
+      </if>
+      <if test="hlgtIcd9Code != null" >
+        hlgt_icd9_code,
+      </if>
+      <if test="hlgtIcd9cmCode != null" >
+        hlgt_icd9cm_code,
+      </if>
+      <if test="hlgtIcd10Code != null" >
+        hlgt_icd10_code,
+      </if>
+      <if test="hlgtJartCode != null" >
+        hlgt_jart_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hlgtVersionDate != null" >
+        #{hlgtVersionDate,jdbcType=VARCHAR},
+      </if>
+      <if test="hlgtActionCode != null" >
+        #{hlgtActionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hlgtModFldNum != null" >
+        #{hlgtModFldNum,jdbcType=VARCHAR},
+      </if>
+      <if test="hlgtCode != null" >
+        #{hlgtCode,jdbcType=BIGINT},
+      </if>
+      <if test="hlgtName != null" >
+        #{hlgtName,jdbcType=VARCHAR},
+      </if>
+      <if test="hlgtWhoartCode != null" >
+        #{hlgtWhoartCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hlgtHartsCode != null" >
+        #{hlgtHartsCode,jdbcType=BIGINT},
+      </if>
+      <if test="hlgtCostartSym != null" >
+        #{hlgtCostartSym,jdbcType=VARCHAR},
+      </if>
+      <if test="hlgtIcd9Code != null" >
+        #{hlgtIcd9Code,jdbcType=VARCHAR},
+      </if>
+      <if test="hlgtIcd9cmCode != null" >
+        #{hlgtIcd9cmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hlgtIcd10Code != null" >
+        #{hlgtIcd10Code,jdbcType=VARCHAR},
+      </if>
+      <if test="hlgtJartCode != null" >
+        #{hlgtJartCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.SocSeqMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.SocSeq" >
+    <result column="soc_version_date" property="socVersionDate" jdbcType="VARCHAR" />
+    <result column="soc_action_code" property="socActionCode" jdbcType="VARCHAR" />
+    <result column="soc_mod_fld_num" property="socModFldNum" jdbcType="VARCHAR" />
+    <result column="soc_ code" property="socCode" jdbcType="BIGINT" />
+    <result column="soc_name" property="socName" jdbcType="VARCHAR" />
+    <result column="soc_abbrev" property="socAbbrev" jdbcType="VARCHAR" />
+    <result column="soc_whoart_code" property="socWhoartCode" jdbcType="VARCHAR" />
+    <result column="soc_harts_code" property="socHartsCode" jdbcType="BIGINT" />
+    <result column="soc_costart_sym" property="socCostartSym" jdbcType="VARCHAR" />
+    <result column="soc_icd9_code" property="socIcd9Code" jdbcType="VARCHAR" />
+    <result column="soc_icd9cm_code" property="socIcd9cmCode" jdbcType="VARCHAR" />
+    <result column="soc_icd10_code" property="socIcd10Code" jdbcType="VARCHAR" />
+    <result column="soc_jart_code" property="socJartCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.SocSeq" >
+    insert into soc_seq (soc_version_date, soc_action_code, soc_mod_fld_num, 
+      "soc_ code", soc_name, soc_abbrev, 
+      soc_whoart_code, soc_harts_code, soc_costart_sym, 
+      soc_icd9_code, soc_icd9cm_code, soc_icd10_code, 
+      soc_jart_code)
+    values (#{socVersionDate,jdbcType=VARCHAR}, #{socActionCode,jdbcType=VARCHAR}, #{socModFldNum,jdbcType=VARCHAR}, 
+      #{socCode,jdbcType=BIGINT}, #{socName,jdbcType=VARCHAR}, #{socAbbrev,jdbcType=VARCHAR}, 
+      #{socWhoartCode,jdbcType=VARCHAR}, #{socHartsCode,jdbcType=BIGINT}, #{socCostartSym,jdbcType=VARCHAR}, 
+      #{socIcd9Code,jdbcType=VARCHAR}, #{socIcd9cmCode,jdbcType=VARCHAR}, #{socIcd10Code,jdbcType=VARCHAR}, 
+      #{socJartCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.SocSeq" >
+    insert into soc_seq
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="socVersionDate != null" >
+        soc_version_date,
+      </if>
+      <if test="socActionCode != null" >
+        soc_action_code,
+      </if>
+      <if test="socModFldNum != null" >
+        soc_mod_fld_num,
+      </if>
+      <if test="socCode != null" >
+        "soc_ code",
+      </if>
+      <if test="socName != null" >
+        soc_name,
+      </if>
+      <if test="socAbbrev != null" >
+        soc_abbrev,
+      </if>
+      <if test="socWhoartCode != null" >
+        soc_whoart_code,
+      </if>
+      <if test="socHartsCode != null" >
+        soc_harts_code,
+      </if>
+      <if test="socCostartSym != null" >
+        soc_costart_sym,
+      </if>
+      <if test="socIcd9Code != null" >
+        soc_icd9_code,
+      </if>
+      <if test="socIcd9cmCode != null" >
+        soc_icd9cm_code,
+      </if>
+      <if test="socIcd10Code != null" >
+        soc_icd10_code,
+      </if>
+      <if test="socJartCode != null" >
+        soc_jart_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="socVersionDate != null" >
+        #{socVersionDate,jdbcType=VARCHAR},
+      </if>
+      <if test="socActionCode != null" >
+        #{socActionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="socModFldNum != null" >
+        #{socModFldNum,jdbcType=VARCHAR},
+      </if>
+      <if test="socCode != null" >
+        #{socCode,jdbcType=BIGINT},
+      </if>
+      <if test="socName != null" >
+        #{socName,jdbcType=VARCHAR},
+      </if>
+      <if test="socAbbrev != null" >
+        #{socAbbrev,jdbcType=VARCHAR},
+      </if>
+      <if test="socWhoartCode != null" >
+        #{socWhoartCode,jdbcType=VARCHAR},
+      </if>
+      <if test="socHartsCode != null" >
+        #{socHartsCode,jdbcType=BIGINT},
+      </if>
+      <if test="socCostartSym != null" >
+        #{socCostartSym,jdbcType=VARCHAR},
+      </if>
+      <if test="socIcd9Code != null" >
+        #{socIcd9Code,jdbcType=VARCHAR},
+      </if>
+      <if test="socIcd9cmCode != null" >
+        #{socIcd9cmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="socIcd10Code != null" >
+        #{socIcd10Code,jdbcType=VARCHAR},
+      </if>
+      <if test="socJartCode != null" >
+        #{socJartCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

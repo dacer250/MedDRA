@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.SmqListMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.SmqList" >
+    <id column="smq_code" property="smqCode" jdbcType="BIGINT" />
+    <result column="smq_name" property="smqName" jdbcType="VARCHAR" />
+    <result column="smq_level" property="smqLevel" jdbcType="INTEGER" />
+    <result column="smq_description" property="smqDescription" jdbcType="VARCHAR" />
+    <result column="smq_source" property="smqSource" jdbcType="VARCHAR" />
+    <result column="smq_note" property="smqNote" jdbcType="VARCHAR" />
+    <result column="MedDRA_version" property="meddraVersion" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="smq_algorithm" property="smqAlgorithm" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    smq_code, smq_name, smq_level, smq_description, smq_source, smq_note, MedDRA_version, 
+    status, smq_algorithm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from smq_list
+    where smq_code = #{smqCode,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from smq_list
+    where smq_code = #{smqCode,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.SmqList" >
+    insert into smq_list (smq_code, smq_name, smq_level, 
+      smq_description, smq_source, smq_note, 
+      MedDRA_version, status, smq_algorithm
+      )
+    values (#{smqCode,jdbcType=BIGINT}, #{smqName,jdbcType=VARCHAR}, #{smqLevel,jdbcType=INTEGER}, 
+      #{smqDescription,jdbcType=VARCHAR}, #{smqSource,jdbcType=VARCHAR}, #{smqNote,jdbcType=VARCHAR}, 
+      #{meddraVersion,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{smqAlgorithm,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.SmqList" >
+    insert into smq_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="smqCode != null" >
+        smq_code,
+      </if>
+      <if test="smqName != null" >
+        smq_name,
+      </if>
+      <if test="smqLevel != null" >
+        smq_level,
+      </if>
+      <if test="smqDescription != null" >
+        smq_description,
+      </if>
+      <if test="smqSource != null" >
+        smq_source,
+      </if>
+      <if test="smqNote != null" >
+        smq_note,
+      </if>
+      <if test="meddraVersion != null" >
+        MedDRA_version,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="smqAlgorithm != null" >
+        smq_algorithm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="smqCode != null" >
+        #{smqCode,jdbcType=BIGINT},
+      </if>
+      <if test="smqName != null" >
+        #{smqName,jdbcType=VARCHAR},
+      </if>
+      <if test="smqLevel != null" >
+        #{smqLevel,jdbcType=INTEGER},
+      </if>
+      <if test="smqDescription != null" >
+        #{smqDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="smqSource != null" >
+        #{smqSource,jdbcType=VARCHAR},
+      </if>
+      <if test="smqNote != null" >
+        #{smqNote,jdbcType=VARCHAR},
+      </if>
+      <if test="meddraVersion != null" >
+        #{meddraVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="smqAlgorithm != null" >
+        #{smqAlgorithm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gzpykj.chps.meddra.entity.SmqList" >
+    update smq_list
+    <set >
+      <if test="smqName != null" >
+        smq_name = #{smqName,jdbcType=VARCHAR},
+      </if>
+      <if test="smqLevel != null" >
+        smq_level = #{smqLevel,jdbcType=INTEGER},
+      </if>
+      <if test="smqDescription != null" >
+        smq_description = #{smqDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="smqSource != null" >
+        smq_source = #{smqSource,jdbcType=VARCHAR},
+      </if>
+      <if test="smqNote != null" >
+        smq_note = #{smqNote,jdbcType=VARCHAR},
+      </if>
+      <if test="meddraVersion != null" >
+        MedDRA_version = #{meddraVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="smqAlgorithm != null" >
+        smq_algorithm = #{smqAlgorithm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where smq_code = #{smqCode,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gzpykj.chps.meddra.entity.SmqList" >
+    update smq_list
+    set smq_name = #{smqName,jdbcType=VARCHAR},
+      smq_level = #{smqLevel,jdbcType=INTEGER},
+      smq_description = #{smqDescription,jdbcType=VARCHAR},
+      smq_source = #{smqSource,jdbcType=VARCHAR},
+      smq_note = #{smqNote,jdbcType=VARCHAR},
+      MedDRA_version = #{meddraVersion,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      smq_algorithm = #{smqAlgorithm,jdbcType=VARCHAR}
+    where smq_code = #{smqCode,jdbcType=BIGINT}
+  </update>
+</mapper>

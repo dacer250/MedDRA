@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.LowLevelTermMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.LowLevelTerm" >
+    <id column="llt_code" property="lltCode" jdbcType="BIGINT" />
+    <result column="llt_name" property="lltName" jdbcType="VARCHAR" />
+    <result column="pt_code" property="ptCode" jdbcType="BIGINT" />
+    <result column="llt_whoart_code" property="lltWhoartCode" jdbcType="VARCHAR" />
+    <result column="llt_harts_code" property="lltHartsCode" jdbcType="BIGINT" />
+    <result column="llt_costart_sym" property="lltCostartSym" jdbcType="VARCHAR" />
+    <result column="llt_icd9_code" property="lltIcd9Code" jdbcType="VARCHAR" />
+    <result column="llt_icd9cm_code" property="lltIcd9cmCode" jdbcType="VARCHAR" />
+    <result column="llt_icd10_code" property="lltIcd10Code" jdbcType="VARCHAR" />
+    <result column="llt_currency" property="lltCurrency" jdbcType="VARCHAR" />
+    <result column="llt_jart_code" property="lltJartCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    llt_code, llt_name, pt_code, llt_whoart_code, llt_harts_code, llt_costart_sym, llt_icd9_code, 
+    llt_icd9cm_code, llt_icd10_code, llt_currency, llt_jart_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from low_level_term
+    where llt_code = #{lltCode,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from low_level_term
+    where llt_code = #{lltCode,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.LowLevelTerm" >
+    insert into low_level_term (llt_code, llt_name, pt_code, 
+      llt_whoart_code, llt_harts_code, llt_costart_sym, 
+      llt_icd9_code, llt_icd9cm_code, llt_icd10_code, 
+      llt_currency, llt_jart_code)
+    values (#{lltCode,jdbcType=BIGINT}, #{lltName,jdbcType=VARCHAR}, #{ptCode,jdbcType=BIGINT}, 
+      #{lltWhoartCode,jdbcType=VARCHAR}, #{lltHartsCode,jdbcType=BIGINT}, #{lltCostartSym,jdbcType=VARCHAR}, 
+      #{lltIcd9Code,jdbcType=VARCHAR}, #{lltIcd9cmCode,jdbcType=VARCHAR}, #{lltIcd10Code,jdbcType=VARCHAR}, 
+      #{lltCurrency,jdbcType=VARCHAR}, #{lltJartCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.LowLevelTerm" >
+    insert into low_level_term
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lltCode != null" >
+        llt_code,
+      </if>
+      <if test="lltName != null" >
+        llt_name,
+      </if>
+      <if test="ptCode != null" >
+        pt_code,
+      </if>
+      <if test="lltWhoartCode != null" >
+        llt_whoart_code,
+      </if>
+      <if test="lltHartsCode != null" >
+        llt_harts_code,
+      </if>
+      <if test="lltCostartSym != null" >
+        llt_costart_sym,
+      </if>
+      <if test="lltIcd9Code != null" >
+        llt_icd9_code,
+      </if>
+      <if test="lltIcd9cmCode != null" >
+        llt_icd9cm_code,
+      </if>
+      <if test="lltIcd10Code != null" >
+        llt_icd10_code,
+      </if>
+      <if test="lltCurrency != null" >
+        llt_currency,
+      </if>
+      <if test="lltJartCode != null" >
+        llt_jart_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lltCode != null" >
+        #{lltCode,jdbcType=BIGINT},
+      </if>
+      <if test="lltName != null" >
+        #{lltName,jdbcType=VARCHAR},
+      </if>
+      <if test="ptCode != null" >
+        #{ptCode,jdbcType=BIGINT},
+      </if>
+      <if test="lltWhoartCode != null" >
+        #{lltWhoartCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lltHartsCode != null" >
+        #{lltHartsCode,jdbcType=BIGINT},
+      </if>
+      <if test="lltCostartSym != null" >
+        #{lltCostartSym,jdbcType=VARCHAR},
+      </if>
+      <if test="lltIcd9Code != null" >
+        #{lltIcd9Code,jdbcType=VARCHAR},
+      </if>
+      <if test="lltIcd9cmCode != null" >
+        #{lltIcd9cmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lltIcd10Code != null" >
+        #{lltIcd10Code,jdbcType=VARCHAR},
+      </if>
+      <if test="lltCurrency != null" >
+        #{lltCurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="lltJartCode != null" >
+        #{lltJartCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gzpykj.chps.meddra.entity.LowLevelTerm" >
+    update low_level_term
+    <set >
+      <if test="lltName != null" >
+        llt_name = #{lltName,jdbcType=VARCHAR},
+      </if>
+      <if test="ptCode != null" >
+        pt_code = #{ptCode,jdbcType=BIGINT},
+      </if>
+      <if test="lltWhoartCode != null" >
+        llt_whoart_code = #{lltWhoartCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lltHartsCode != null" >
+        llt_harts_code = #{lltHartsCode,jdbcType=BIGINT},
+      </if>
+      <if test="lltCostartSym != null" >
+        llt_costart_sym = #{lltCostartSym,jdbcType=VARCHAR},
+      </if>
+      <if test="lltIcd9Code != null" >
+        llt_icd9_code = #{lltIcd9Code,jdbcType=VARCHAR},
+      </if>
+      <if test="lltIcd9cmCode != null" >
+        llt_icd9cm_code = #{lltIcd9cmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lltIcd10Code != null" >
+        llt_icd10_code = #{lltIcd10Code,jdbcType=VARCHAR},
+      </if>
+      <if test="lltCurrency != null" >
+        llt_currency = #{lltCurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="lltJartCode != null" >
+        llt_jart_code = #{lltJartCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where llt_code = #{lltCode,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gzpykj.chps.meddra.entity.LowLevelTerm" >
+    update low_level_term
+    set llt_name = #{lltName,jdbcType=VARCHAR},
+      pt_code = #{ptCode,jdbcType=BIGINT},
+      llt_whoart_code = #{lltWhoartCode,jdbcType=VARCHAR},
+      llt_harts_code = #{lltHartsCode,jdbcType=BIGINT},
+      llt_costart_sym = #{lltCostartSym,jdbcType=VARCHAR},
+      llt_icd9_code = #{lltIcd9Code,jdbcType=VARCHAR},
+      llt_icd9cm_code = #{lltIcd9cmCode,jdbcType=VARCHAR},
+      llt_icd10_code = #{lltIcd10Code,jdbcType=VARCHAR},
+      llt_currency = #{lltCurrency,jdbcType=VARCHAR},
+      llt_jart_code = #{lltJartCode,jdbcType=VARCHAR}
+    where llt_code = #{lltCode,jdbcType=BIGINT}
+  </update>
+</mapper>

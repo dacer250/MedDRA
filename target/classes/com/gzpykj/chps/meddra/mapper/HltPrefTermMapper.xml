@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.HltPrefTermMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.HltPrefTerm" >
+    <id column="hlt_code" property="hltCode" jdbcType="BIGINT" />
+    <result column="hlt_name" property="hltName" jdbcType="VARCHAR" />
+    <result column="hlt_whoart_code" property="hltWhoartCode" jdbcType="VARCHAR" />
+    <result column="hlt_harts_code" property="hltHartsCode" jdbcType="BIGINT" />
+    <result column="hlt_costart_sym" property="hltCostartSym" jdbcType="VARCHAR" />
+    <result column="hlt_icd9_code" property="hltIcd9Code" jdbcType="VARCHAR" />
+    <result column="hlt_icd9cm_code" property="hltIcd9cmCode" jdbcType="VARCHAR" />
+    <result column="hlt_icd10_code" property="hltIcd10Code" jdbcType="VARCHAR" />
+    <result column="hlt_jart_code" property="hltJartCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    hlt_code, hlt_name, hlt_whoart_code, hlt_harts_code, hlt_costart_sym, hlt_icd9_code, 
+    hlt_icd9cm_code, hlt_icd10_code, hlt_jart_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from hlt_pref_term
+    where hlt_code = #{hltCode,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from hlt_pref_term
+    where hlt_code = #{hltCode,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.HltPrefTerm" >
+    insert into hlt_pref_term (hlt_code, hlt_name, hlt_whoart_code, 
+      hlt_harts_code, hlt_costart_sym, hlt_icd9_code, 
+      hlt_icd9cm_code, hlt_icd10_code, hlt_jart_code
+      )
+    values (#{hltCode,jdbcType=BIGINT}, #{hltName,jdbcType=VARCHAR}, #{hltWhoartCode,jdbcType=VARCHAR}, 
+      #{hltHartsCode,jdbcType=BIGINT}, #{hltCostartSym,jdbcType=VARCHAR}, #{hltIcd9Code,jdbcType=VARCHAR}, 
+      #{hltIcd9cmCode,jdbcType=VARCHAR}, #{hltIcd10Code,jdbcType=VARCHAR}, #{hltJartCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.HltPrefTerm" >
+    insert into hlt_pref_term
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hltCode != null" >
+        hlt_code,
+      </if>
+      <if test="hltName != null" >
+        hlt_name,
+      </if>
+      <if test="hltWhoartCode != null" >
+        hlt_whoart_code,
+      </if>
+      <if test="hltHartsCode != null" >
+        hlt_harts_code,
+      </if>
+      <if test="hltCostartSym != null" >
+        hlt_costart_sym,
+      </if>
+      <if test="hltIcd9Code != null" >
+        hlt_icd9_code,
+      </if>
+      <if test="hltIcd9cmCode != null" >
+        hlt_icd9cm_code,
+      </if>
+      <if test="hltIcd10Code != null" >
+        hlt_icd10_code,
+      </if>
+      <if test="hltJartCode != null" >
+        hlt_jart_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hltCode != null" >
+        #{hltCode,jdbcType=BIGINT},
+      </if>
+      <if test="hltName != null" >
+        #{hltName,jdbcType=VARCHAR},
+      </if>
+      <if test="hltWhoartCode != null" >
+        #{hltWhoartCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hltHartsCode != null" >
+        #{hltHartsCode,jdbcType=BIGINT},
+      </if>
+      <if test="hltCostartSym != null" >
+        #{hltCostartSym,jdbcType=VARCHAR},
+      </if>
+      <if test="hltIcd9Code != null" >
+        #{hltIcd9Code,jdbcType=VARCHAR},
+      </if>
+      <if test="hltIcd9cmCode != null" >
+        #{hltIcd9cmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hltIcd10Code != null" >
+        #{hltIcd10Code,jdbcType=VARCHAR},
+      </if>
+      <if test="hltJartCode != null" >
+        #{hltJartCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gzpykj.chps.meddra.entity.HltPrefTerm" >
+    update hlt_pref_term
+    <set >
+      <if test="hltName != null" >
+        hlt_name = #{hltName,jdbcType=VARCHAR},
+      </if>
+      <if test="hltWhoartCode != null" >
+        hlt_whoart_code = #{hltWhoartCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hltHartsCode != null" >
+        hlt_harts_code = #{hltHartsCode,jdbcType=BIGINT},
+      </if>
+      <if test="hltCostartSym != null" >
+        hlt_costart_sym = #{hltCostartSym,jdbcType=VARCHAR},
+      </if>
+      <if test="hltIcd9Code != null" >
+        hlt_icd9_code = #{hltIcd9Code,jdbcType=VARCHAR},
+      </if>
+      <if test="hltIcd9cmCode != null" >
+        hlt_icd9cm_code = #{hltIcd9cmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hltIcd10Code != null" >
+        hlt_icd10_code = #{hltIcd10Code,jdbcType=VARCHAR},
+      </if>
+      <if test="hltJartCode != null" >
+        hlt_jart_code = #{hltJartCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where hlt_code = #{hltCode,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gzpykj.chps.meddra.entity.HltPrefTerm" >
+    update hlt_pref_term
+    set hlt_name = #{hltName,jdbcType=VARCHAR},
+      hlt_whoart_code = #{hltWhoartCode,jdbcType=VARCHAR},
+      hlt_harts_code = #{hltHartsCode,jdbcType=BIGINT},
+      hlt_costart_sym = #{hltCostartSym,jdbcType=VARCHAR},
+      hlt_icd9_code = #{hltIcd9Code,jdbcType=VARCHAR},
+      hlt_icd9cm_code = #{hltIcd9cmCode,jdbcType=VARCHAR},
+      hlt_icd10_code = #{hltIcd10Code,jdbcType=VARCHAR},
+      hlt_jart_code = #{hltJartCode,jdbcType=VARCHAR}
+    where hlt_code = #{hltCode,jdbcType=BIGINT}
+  </update>
+</mapper>

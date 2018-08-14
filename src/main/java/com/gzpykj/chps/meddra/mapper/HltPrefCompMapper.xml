@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gzpykj.chps.meddra.mapper.HltPrefCompMapper" >
+  <resultMap id="BaseResultMap" type="com.gzpykj.chps.meddra.entity.HltPrefComp" >
+    <result column="hlt_code" property="hltCode" jdbcType="BIGINT" />
+    <result column="pt_code" property="ptCode" jdbcType="BIGINT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gzpykj.chps.meddra.entity.HltPrefComp" >
+    insert into hlt_pref_comp (hlt_code, pt_code)
+    values (#{hltCode,jdbcType=BIGINT}, #{ptCode,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzpykj.chps.meddra.entity.HltPrefComp" >
+    insert into hlt_pref_comp
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hltCode != null" >
+        hlt_code,
+      </if>
+      <if test="ptCode != null" >
+        pt_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hltCode != null" >
+        #{hltCode,jdbcType=BIGINT},
+      </if>
+      <if test="ptCode != null" >
+        #{ptCode,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>
